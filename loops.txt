@@ -1,0 +1,199 @@
+for loop examples
+
+1)script to print 1 to 10 numbers using for loop
+#!/bin/bash
+
+for i in {1..10}
+do
+        echo $i
+done
+
+2)script to print 1 to 10 numbers with lagging of 3sec's
+#!/bin/bash
+
+for i in {1..10}
+do
+        echo $i
+        sleep 3
+done
+
+3)script to print 10 to 1
+#!/bin/bash
+
+for i in {10..1}
+do
+        echo $i
+        sleep 1
+done
+
+4)script to print odd numbers
+#!/bin/bash
+
+for i in {1..10..2}
+do
+        echo $i
+done
+5)script to print even numbers
+#!/bin/bash
+
+for i in {0..10..2}
+do
+        echo $i
+done
+6)script for multiplication 
+#!/bin/bash
+
+number=10
+for i in {1..10}
+do
+        echo "$number * $i=$(( number * i ))"
+done
+
+7)script to fetch all the files from current directory
+#!/bin/bash
+
+for i in *
+do
+        echo $i
+done
+
+8)script to fetch files with specific directory
+#!/bin/bash
+
+for i in /etc/*.conf
+do
+        echo $i
+done
+9)script to fetch files with specific file extension
+#!/bin/bash
+
+for i in *.sh
+do
+        echo $i
+done
+----------------------------------------while loop----------------------
+10)script for infinite loop condition
+#!/bin/bash
+
+init=4
+while true
+do
+        echo $init
+done
+
+11)script to print number
+#!/bin/bash
+
+init=4
+while [[ $init -le 10 ]]
+do
+        echo $init
+        (( init++ ))
+done
+
+12)script to print reverse number
+#!/bin/bash
+
+init=4
+while [[ $init -ge 1 ]]
+do
+        echo $init
+        (( init-- ))
+done
+
+-----------------------------------Real time example-------------------
+13)fetch and copy a file from any directory
+#!/bin/bash
+
+for i in /etc/*.conf
+do
+        echo $i
+        cp $i ./jsp
+        echo "copied to jsp"
+done
+
+14)script to find the count of files in a given directory
+#!/bin/bash
+
+for i in ./jsp/*
+do
+        echo $i
+        (( count++ ))
+done
+echo "the total count of files: $count"
+
+15)to move file from one directory to another directory
+#!/bin/bash
+
+for i in ./jsp/*
+do
+        echo $i
+        mv $i ./qsp
+done
+
+16)script to renamefiles from the current directory
+#!/bin/bash
+
+for i in  /jsp/*.html
+do
+        echo $i
+        mv $i { $i }_changed
+done
+
+17)to remove all files from given directory
+#!/bin/bash
+
+for i in /jsp/*.html
+do
+        rm -rf $i
+done
+
+---------------------compressing file from given directory-------------
+18)tar.gz
+#!/bin/bash
+
+echo "enter file name"
+read file
+for i in ./$file
+do
+        tar -czvf  "$file.tar.gz" "$file"
+        echo $file
+
+done
+
+19)zip
+#!/bin/bash
+
+echo "enter file name"
+read file
+for i in ./$file
+do
+        zip "$file.zip" "$file"
+done
+
+20)gzip
+#!/bin/bash
+
+echo "enter file name"
+read file
+for i in ./$file
+do
+        gzip "$file.gzip" "$file"
+done
+
+-------------------------------------------------------------
+21)script to fetch files from given directory and count it with particular extension of files.
+#!/bin/bash
+
+echo "enter directory name"
+read dir
+echo "enter extension"
+read extension
+for i in /$dir/*.$extension
+do
+
+        echo " (( $i  ))"
+        (( count++ ))
+done
+echo "the total count of files: $count"
+
